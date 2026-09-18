@@ -2054,8 +2054,8 @@ PRESSING MACHINE
     </a>
 
 <!-- MACHINE PARAMETERS BUTTON -->
-<button class="manual-button parameters-button" onclick="openParameters()">
-    <span>⚙️ MACHINE PARAMETERS</span>
+<button class="manual-button" onclick="openProtectedManual('./Machine-Parameters.pdf')">
+    ⚙️ MACHINE PARAMETERS
 </button>
 
 </section>
@@ -2375,6 +2375,32 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+
+</script>
+<script>
+
+function openProtectedManual(filePath) {
+
+    const correctPassword = "MAINT@2026";
+
+    const enteredPassword = prompt("🔐 PASSWORD REQUIRED\n\nEnter password to access this document:");
+
+    if (enteredPassword === null) {
+        return;
+    }
+
+    if (enteredPassword === correctPassword) {
+
+        // Password correct
+        window.open(filePath, "_blank");
+
+    } else {
+
+        alert("❌ Incorrect password!\n\nAccess denied.");
+
+    }
+
+}
 
 </script>
 </body>
